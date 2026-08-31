@@ -44,6 +44,7 @@ Unified CRM — All leads flow into Atelier’s D1 database with deduplication a
 Intelligent Decision — Real-time calls to KG-MCP for pricing, craftsmanship standards, and style analysis.
 Trust Conversion — Clients view authentic cases and use the estimation tool on Atelier.
 Flywheel — Completed projects generate new photos and data that enrich both Atelier and the knowledge graph.
+
 ---
 
 🚀 Quick Start
