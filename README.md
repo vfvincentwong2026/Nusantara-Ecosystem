@@ -1,79 +1,122 @@
-# Nusantara Ecosystem
-
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-
-> 一句话简述项目的核心功能与价值（例：专门用于 xx 的模块化生态基础设施）。
-
+🌏 Nusantara Ecosystem
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+> **AI-Native Digital Toolbox for High-End Villa Design in Indonesia**  
+> 专为印尼市场高端别墅全案设计打造的 OPC（一人公司）数字化工具箱
+Nusantara Ecosystem enables solo entrepreneurs to achieve the precision marketing and delivery capabilities of mid-sized firms through four tightly integrated modules: Active Lead Generation + Content Funnel + Knowledge Decision + Brand Conversion.
 ---
+🧩 Architecture Overview
+```mermaid
+graph TD
+    A[IndoScout-D-B<br/>Active Lead Engine] --> D[Nusantara-Atelier<br/>Brand Front-end]
+    C[Nusantara-KG-MCP-Server<br/>Knowledge Brain] --> A
+    C --> D
+    C --> E[AiToEarn<br/>Content Automation]
+    E -->|Content & Leads| D
+    D -->|Cases & Data| E
+    A -->|Prospects| D
 
-## 📖 简介 (Overview)
+    subgraph Core Business Flow
+        D
+    end
 
-**Nusantara Ecosystem** 旨在提供 [写明核心用途，例如：构建高效、可扩展的服务生态/数据集/开发工具包]。
-
-### 核心特性 (Key Features)
-
-- **高效协同**：模块化设计，方便集成与扩展。
-- **开箱即用**：提供标准化的配置与丰富的 API/接口。
-- **灵活配置**：支持自定义扩展组件。
-
+    style A fill:#f9f,stroke:#333
+    style C fill:#9cf,stroke:#333
+    style D fill:#9f9,stroke:#333
+    style E fill:#fc9,stroke:#333
+```
+Four Pillars
+Module	Role	Key Capabilities
+IndoScout-D-B	Active Lead Engine	Google Places scanning of premium Indonesian districts · Quality × Reach scoring · Personalized WhatsApp outreach scripts
+Nusantara-KG-MCP-Server	Knowledge & Decision Brain	8 design styles × 12 space types × 53 material SKUs · Instant cost calculation · Professional talk tracks & content scripts
+Nusantara-Atelier	Brand Front-end & Converter	25 real projects / 231 photos · Instant estimation tool (floor plan → quote in ~30 min) · Cloudflare Pages + D1 · ZH/EN/ID
+AiToEarn	Content Marketing Automation	Batch short-video generation from real photos · Multi-platform publishing (TikTok, YouTube, IG…) · Intent detection & auto-reply · Lead sync
 ---
-
-## 🛠️ 安装指南 (Installation)
-
-### 环境要求 (Prerequisites)
-
-- Node.js >= 18.0.0 / Python >= 3.10 *(根据实际情况修改)*
-- Git
-
-### 安装步骤 (Steps)
-
+🔄 End-to-End Data Flow
+Dual Acquisition — IndoScout actively scrapes high-value leads; AiToEarn attracts inbound inquiries via content.
+Unified CRM — All leads flow into Atelier’s D1 database with deduplication and follow-up timeline.
+Intelligent Decision — Real-time calls to KG-MCP for pricing, craftsmanship standards, and style analysis.
+Trust Conversion — Clients view authentic cases and use the estimation tool on Atelier.
+Flywheel — Completed projects generate new photos and data that enrich both Atelier and the knowledge graph.
+---
+🚀 Quick Start
+Prerequisites
+Cloudflare account
+Node.js ≥ 20.18
+Python ≥ 3.9
+Docker
+Clone with Submodules
 ```bash
-# 1. 克隆仓库
-git clone [https://github.com/vfvincentwong2026/Nusantara-Ecosystem.git](https://github.com/vfvincentwong2026/Nusantara-Ecosystem.git)
-
-# 2. 进入项目目录
+git clone --recurse-submodules https://github.com/vfvincentwong2026/Nusantara-Ecosystem.git
 cd Nusantara-Ecosystem
+```
+Deploy Individual Modules
+```bash
+# 1. Atelier (Cloudflare Pages)
+cd submodules/Nusantara-Atelier
+npm install
+npm run deploy
 
-# 3. 安装依赖（以实际语言/工具链为准）
-npm install   # 或 pip install -r requirements.txt
-🚀 快速开始 (Quick Start)
-简单的示例代码，展示如何快速运行项目：
+# 2. KG-MCP Server
+cd ../Nusantara-KG-MCP-Server
+pip install -r requirements.txt   # or python install
+python app.py
 
-Python
+# 3. IndoScout (Cloudflare Worker)
+cd ../IndoScout-D-B
+npm install
+npm run deploy:worker
 
-
-# 示例代码 (依据实际代码语言替换)
-import nusantara
-
-app = nusantara.initialize()
-app.run()
-📂 项目结构 (Project Structure)
-Plaintext
-
-
+# 4. AiToEarn
+cd ../AiToEarn
+docker compose up -d
+```
+> Update submodules later with:  
+> `git submodule update --remote`
+---
+📊 Current Status
+Module	Version	Progress	Next Milestone
+Atelier	v1.0	Live site · 25 cases · Estimation tool (P1)	Online designer booking
+KG-MCP	P0	Knowledge graph skeleton · 66 core nodes	Expand to 200+ nodes + vector search
+IndoScout	P0	Places API integrated · Scoring model validated	WhatsApp automation + CRM dashboard
+AiToEarn	v2.5	Upstream sync · Integration points ready	Luxury renovation-specific templates
+---
+📁 Repository Structure
+```text
 Nusantara-Ecosystem/
-├── docs/             # 项目文档
-├── src/              # 核心源代码
-├── tests/            # 单元测试与集成测试
-├── .gitignore        # Git 忽略文件
-├── LICENSE           # 开源协议
-└── README.md         # 项目说明文档
-🤝 贡献指南 (Contributing)
-欢迎提交 Issues 和 Pull Requests 来协助完善该项目！
-
-Fork 本仓库
-
-创建特性分支 (git checkout -b feature/AmazingFeature)
-
-提交修改 (git commit -m 'Add some AmazingFeature')
-
-推送到分支 (git push origin feature/AmazingFeature)
-
-提交 Pull Request
-
-📄 开源协议 (License)
-本项目基于 MIT License 协议开源。
-
-
-<FollowUp label="需要根据具体的代码语言（如 Python、Java、Node.js）精细化调整该文档吗？" query="请帮我根据特定的
+├── README.md
+├── .gitmodules
+├── submodules/
+│   ├── Nusantara-Atelier/          # Brand front-end & conversion
+│   ├── IndoScout-D-B/              # Active lead generation
+│   ├── Nusantara-KG-MCP-Server/    # Knowledge decision center
+│   └── AiToEarn/                   # Content marketing automation
+└── docs/
+    ├── architecture.md             # System architecture
+    └── integration-guide.md        # Module integration guide
+```
+---
+💡 Strategic Positioning
+Traditional Design Firm	Nusantara Model
+Heavy assets, large sales teams, offline exhibitions	Lightweight · AI sales assistant · AI content specialist · AI design advisor · 24/7 online showroom
+Why it works in Indonesia
+Deep cultural understanding of high-end Indonesian homeowners’ aesthetic preferences and decision habits
+Real local material supply chain data and completed project cases (not synthetic)
+Edge architecture via Cloudflare Workers for low-cost, high-availability global + local acceleration
+---
+🤝 Contributing
+Fork the repository
+Create your feature branch (`git checkout -b feature/AmazingFeature`)
+Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+Push to the branch (`git push origin feature/AmazingFeature`)
+Open a Pull Request
+For submodule contributions, work inside the corresponding `submodules/` directory and submit PRs upstream.
+---
+📄 License
+This meta-repository is released under the MIT License.  
+Individual sub-projects may follow their own licenses (MIT / Apache, etc.).
+---
+<p align="center">
+  <b>AI-Native One-Person Company · Built for the Indonesian Luxury Design Market</b><br>
+  Exploring the future of solo entrepreneurship with AI.
+</p>
