@@ -2,12 +2,14 @@
 内容驱动型增长生态 · 印尼高端别墅设计
 Content-Driven Growth Ecosystem for OPC · Indonesian High-End Villa Design
 
+---
 https://img.shields.io/badge/License-Apache%25202.0-blue.svg
 https://img.shields.io/badge/Deployed%2520on-Cloudflare%2520Pages-F38020?logo=cloudflare&logoColor=white
 https://img.shields.io/badge/Workers-Cloudflare-F38020?logo=cloudflare&logoColor=white
 https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white
 https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white
 https://img.shields.io/badge/Node.js-18+-339933?logo=nodedotjs&logoColor=white
+---
 
 📖 目录 / Table of Contents
 项目概览 / Overview
